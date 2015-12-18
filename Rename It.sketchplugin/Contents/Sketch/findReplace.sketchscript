@@ -2,7 +2,7 @@ function createDialog()
 {
 	var alert = COSAlertWindow.new();
 
-	function createTextFieldWithLavel(label,defaultValue) {
+	function createTextFieldWithLabel(label,defaultValue) {
 			alert.addTextLabelWithValue(label);
 			alert.addTextFieldWithValue(defaultValue);
 	}
@@ -11,10 +11,10 @@ function createDialog()
 	alert.setInformativeText("Find and replace text in the selected layer(s) * CASE SENSITIVE *");
 
 	// Name
-	createTextFieldWithLavel("Find:","");
+	createTextFieldWithLabel("Find:","");
 
 	// Interator
-	createTextFieldWithLavel("Replace with:","");
+	createTextFieldWithLabel("Replace with:","");
 
 	// Actions buttons.
 	alert.addButtonWithTitle('OK');
@@ -52,13 +52,13 @@ var findReplace = function(context) {
         [layer setName:name];
 
     	// Success message
-    	[doc showMessage: "Rename it: Updated "+selectionCount+" layer(s)"];
+    	[doc showMessage: "Rename It: Updated "+selectionCount+" layer(s)"];
     }
   }
   else
   {
       // No layer selected
-      [doc showMessage: "Rename it: You need to select at least one layer"];
+      [doc showMessage: "Rename It: You need to select at least one layer"];
   }
 }
 
@@ -69,7 +69,7 @@ function replaceText(layerName, currIdx, findText, replaceWith, doc) {
   var reg = new RegExp(escapeRegExp(findText), "g");
   var found = layerName.match(reg);
   if (found == null) {
-    [doc showMessage: "Rename it: Couldn't find a match for: "+ layerName];
+    [doc showMessage: "Rename It: Couldn't find a match for: "+ layerName];
     return layerName;
   }
   else {
